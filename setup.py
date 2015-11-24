@@ -19,16 +19,14 @@ from setuptools import setup
 setup(
     zip_safe=True,
     name='cloudify-ldap-plugin',
-    version='1.3',
+    version='1.0',
     packages=[
-        'active_directory',
-        'active_directory.authentication'
+        'authentication'
     ],
     license='LICENSE',
     description='Cloudify security plugin for authentication and authorization'
                 ' against active directory',
     install_requires=[
-        'flask-securest==0.7',
         'python-ldap==2.4.6'
     ]
 )

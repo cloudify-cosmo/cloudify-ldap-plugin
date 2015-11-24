@@ -17,6 +17,7 @@
 import ldap
 from flask_securest.authentication_providers.abstract_authentication_provider \
     import AbstractAuthenticationProvider
+from flask_securest import utils
 
 
 class LDAPAuthenticationProvider(AbstractAuthenticationProvider):
@@ -24,7 +25,7 @@ class LDAPAuthenticationProvider(AbstractAuthenticationProvider):
         self.directory_url = directory_url
 
     def authenticate(self, userstore=None):
-        username, password = self._retrieve_credentials_from_request()
+        username, password = utils.get_basic_http_authentication_info()
         # initialize connection to the LDAP server
         try:
             conn = ldap.initialize(self.directory_url)
